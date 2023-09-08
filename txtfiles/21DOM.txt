@@ -1,0 +1,108 @@
+HTML belgesi JavaScript nesnesi olarak yapılandırılmıştır. 
+Her HTML elementi farklı özelliklere sahiptir ve bunları manipüle etmek için kullanılabilir.
+ JavaScript kullanarak HTML elementlerini almak, oluşturmak, eklemek veya kaldırmak mümkündür. 
+Örnekler aşağıda incelenebilir. JavaScript ile HTML elementi seçmek, CSS ile seçmek ile benzerdir.
+ HTML elementini seçmek için etiket adı, id, sınıf adı veya diğer öznitelikler kullanılır.
+
+
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Document Object Model</title>
+    </head>
+    <body>
+
+     <h1 class='title' id='first-title'>First Title</h1>
+     <h1 class='title' id='second-title'>Second Title</h1>
+     <h1 class='title' id='third-title'>Third Title</h1>
+     <h1></h1>
+
+    </body>
+  </html>
+
+
+
+const allTitles = document.getElementsByTagName('h1')
+
+console.log(allTitles) //HTMLCollections
+console.log(allTitles.length) // 4
+
+for (let i = 0; i < allTitles.length; i++) {
+  console.log(allTitles[i]) // prints each elements in the HTMLCollection
+}
+
+
+
+
+getElementsById() tek bir HTML elementine yönelir. Id'yi # olmadan bir argüman olarak geçiririz.
+
+
+let firstTitle = document.getElementById('first-title')
+console.log(firstTitle) // <h1>First Title</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone:DOM</title>
+  </head>
+  <body>
+    <div class="wrapper">
+        <h1>Asabeneh Yetayeh challenges in 2020</h1>
+        <h2>30DaysOfJavaScript Challenge</h2>
+        <ul></ul>
+    </div>
+    <script>
+    const lists = `
+    <li>30DaysOfPython Challenge Done</li>
+            <li>30DaysOfJavaScript Challenge Ongoing</li>
+            <li>30DaysOfReact Challenge Coming</li>
+            <li>30DaysOfFullStack Challenge Coming</li>
+            <li>30DaysOfDataAnalysis Challenge Coming</li>
+            <li>30DaysOfReactNative Challenge Coming</li>
+            <li>30DaysOfMachineLearning Challenge Coming</li>`
+  const ul = document.querySelector('ul')
+  ul.innerHTML = lists
+    </script>
+  </body>
+</html>
+
+or 
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone:DOM</title>
+  </head>
+  <body>
+    <div class="wrapper">
+        <h1>Asabeneh Yetayeh challenges in 2020</h1>
+        <h2>30DaysOfJavaScript Challenge</h2>
+        <ul>
+            <li>30DaysOfPython Challenge Done</li>
+            <li>30DaysOfJavaScript Challenge Ongoing</li>
+            <li>30DaysOfReact Challenge Coming</li>
+            <li>30DaysOfFullStack Challenge Coming</li>
+            <li>30DaysOfDataAnalysis Challenge Coming</li>
+            <li>30DaysOfReactNative Challenge Coming</li>
+            <li>30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+    </div>
+    <script>
+  const ul = document.querySelector('ul')
+  ul.innerHTML = ''
+    </script>
+  </body>
+</html>
+
+
+const titles = document.querySelectorAll('h1')
+titles.forEach((title, i) => {
+  title.style.fontSize = '24px' // all titles will have 24px font size
+  if (i % 2 === 0) {
+    title.style.color = 'green'
+  } else {
+    title.style.color = 'red'
+  }
+})
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        let title = document.createElement('h1')
+        title.className = 'title'
+        title.style.fontSize = '24px'
+        title.textContent = 'Creating HTML element DOM Day 2'
+
+        console.log(title)
+    </script>
+</body>
+
+</html>
+
+Element oluşturma
+Birden fazla element oluşturmak için döngü kullanmalıyız. Döngü kullanarak istediğimiz kadar HTML elementi oluşturabiliriz.
+ Element oluşturduktan sonra, HTML nesnenin farklı özelliklerine değer atayabiliriz.
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        let title
+        for (let i = 0; i < 3; i++) {
+            title = document.createElement('h1')
+            title.className = 'title'
+            title.style.fontSize = '24px'
+            title.textContent = i
+            console.log(title)
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+Bir üst elemente child ekleme
+Oluşturduğumuz elementi HTML'de görmek için, üst element olarak child olarak eklememiz gerekir. 
+HTML'de body'sine document.body ile erişebiliriz. document.body appendChild() metodunu destekler. Aşağıdaki örneğe bakın.
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        // creating multiple elements and appending to parent element
+        let title
+        for (let i = 0; i < 3; i++) {
+            title = document.createElement('h1')
+            title.className = 'title'
+            title.style.fontSize = '24px'
+            title.textContent = i
+            document.body.appendChild(title)
+        }
+    </script>
+</body>
+</html>
+
+
+Bir üst ebeveyn(kapsar element) bir child elementi kaldırma
+HTML oluşturduktan sonra, element veya elementleri kaldırmak isteyebiliriz ve removeChild() metodunu kullanabiliriz.
+
+Örnek:
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+    <h1>Removing child Node</h1>
+    <h2>Asabeneh Yetayeh challenges in 2020</h1>
+    <ul>
+        <li>30DaysOfPython Challenge Done</li>
+        <li>30DaysOfJavaScript Challenge Done</li>
+        <li>30DaysOfReact Challenge Coming</li>
+        <li>30DaysOfFullStack Challenge Coming</li>
+        <li>30DaysOfDataAnalysis Challenge Coming</li>
+        <li>30DaysOfReactNative Challenge Coming</li>
+        <li>30DaysOfMachineLearning Challenge Coming</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector('ul')
+        const lists = document.querySelectorAll('li')
+        for (const list of lists) {
+            ul.removeChild(list)
+
+        }
+    </script>
+</body>
+
+</html>
+
+
+Önceki bölümde gördüğümüz gibi, bir üst elementin tüm iç HTML elementlerini veya child elementleri innerHTML metodu ve 
+özelliklerini kullanarak ortadan kaldırmak için daha iyi bir yol mevcut.
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+</head>
+
+<body>
+    <h1>Removing child Node</h1>
+    <h2>Asabeneh Yetayeh challenges in 2020</h1>
+    <ul>
+        <li>30DaysOfPython Challenge Done</li>
+        <li>30DaysOfJavaScript Challenge Done</li>
+        <li>30DaysOfReact Challenge Coming</li>
+        <li>30DaysOfFullStack Challenge Coming</li>
+        <li>30DaysOfDataAnalysis Challenge Coming</li>
+        <li>30DaysOfReactNative Challenge Coming</li>
+        <li>30DaysOfMachineLearning Challenge Coming</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector('ul')
+        ul.innerHTML = ''
+    </script>
+</body>
+
+</html>
+

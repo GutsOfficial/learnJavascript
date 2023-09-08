@@ -1,0 +1,52 @@
+Temiz Kod Yazmak
+JavaScript Stil Kılavuzu
+JavaScript stil kılavuzu, JavaScript kodunun nasıl yazılması ve düzenlenmesi gerektiğini söyleyen bir dizi standarttır. Bu bölümde JavaScript rehberlerinden ve temiz kod nasıl yazılırdan bahsedeceğiz.
+
+JavaScript bir programlama dilidir ve insan dili gibi syntax(sözdizimi) yapısına sahiptir. JavaScript'in sözdizimi, kolaylık ve basitlik adına belirli bir stil yönergesini izleyerek yazılmalıdır.
+
+Neden stil kılavuzuna ihtiyacımız var?
+Çok uzun zamandır tek başına kodlama yapıyorsun ama şimdi bir ekip halinde çalışıyorsun gibi düşünelim. Tek çalıştığın sürece nasıl kod yazdığınız bu kadar önemli değil, ancak 10 veya 20 veya daha fazla geliştirici ekibinde bir projede ve aynı kod tabanı üzerinde çalıştığınızda, kod dağınık ve yönetilmesi zor olacaktır. İzlenecek herhangi bir yönerge yoktur.
+
+Kendi yönergelerinizi ve sözleşmelerinizi geliştirebilir veya iyi geliştirilmiş yönergeleri de uyarlayabilirsiniz. Bize en yaygın bilinen yönergeleri bildirin. En yaygın JavaScript Stil Kılavuzları
+
+Airbnb JavaScript Style Guide
+JavaScript Standard Style Guide
+Google JavaScript Style Guide
+Airbnb JavaScript Style Guide
+Airbnb, internetteki en popüler JavaScript stil kılavuzlarından birine sahiptir. JavaScript'in neredeyse her yönünü de kapsar ve birçok geliştirici ve şirket tarafından benimsenmiştir. Airbnb stil rehberine göz atabilirsiniz. ben de denemenizi tavsiye ederim. Stillerinin kullanımı çok kolay ve anlaşılması kolaydır.
+
+Standard JavaScript Style Guide
+Bu kılavuz Airbnb kadar popüler değil ama bakmaya değer. Stil kılavuzlarında noktalı virgülü kaldırdılar.
+
+Google JavaScript Style Guide
+Google'ın yönergesi hakkında pek bir şey söylemiyorum ve kullanmadım, bunun yerine şu link'e bir göz atmanızı öneririm.
+
+JavaScript Kodlama Kuralları
+Bu görevde ayrıca genel JavaScript kodlama yazım kurallarını ve kılavuzlarını kullandık. Kodlama kuralları, bir kişi, bir ekip veya bir şirket tarafından geliştirilen programlama için stil yönergeleridir.
+
+Kodlama kuralları aşağıdakilere yardımcı olur:
+
+temiz kod yazmak
+kod okunabilirliğini geliştirmek
+kodun yeniden kullanılabilirliğini ve sürdürülebilirliğini geliştirmek için
+Kodlama kuralları şunları içerir:
+
+Değişkenler için adlandırma ve bildirim kuralları
+Fonksiyonlar için adlandırma ve bildirim kuralları
+Boşluk, girinti ve yorumların kullanımına ilişkin kurallar
+Programlama uygulamaları ve ilkeleri
+30DaysOfJavaScript'te kullanılan kurallar
+Bu meydan okumada normal JavaScript kuralını takip ediyoruz, ancak yazma tercihimi de ekledim.
+
+Değişkenler ve fonksiyonlar için camelCase kullandık.
+Tüm değişken isimleri bir harfle başlar.
+Sabitler, diziler, nesneler ve işlevler için const kullanmayı seçtik. Çift alıntı yerine tek tırnak veya ters tik kullanmayı tercih ettik. Tek alıntı moda oluyor.
+Kodumuzdan noktalı virgülleri de kaldırdık ama bu kişisel tercih meselesidir.
+Aritmetik operatörler, atama operatörleri ve virgülden sonra boşluk
+Fonksiyon bildirimi yerine arrow function
+Fonksiyon bir satır ise, implicit return yerine explicit return
+Bir nesnenin son değerinin sonunda virgül yok
+Daha uzun versiyon yerine +=, -=, *= /=, **= bunu tercih ediyoruz
+console.log()'u kullandığımızda, konsolun nereden geldiğini belirlemek için bir etiket dizgisi ile yazdırmak iyidir.
+
+

@@ -1,0 +1,145 @@
+Promise
+Biz insanlar, belirli bir zamanda bir faaliyette bulunma sözü veririz veya alırız. Sözümüzü tutarsak başkalarını mutlu ederiz, ama sözümüzü tutmazsak hoşnutsuzluklara yol açabilir. JavaScript'te promise(söz) vermenin yukarıdaki örneklerle ortak bir yanı vardır.
+
+Bir promise, JavaScript'te asynchronous işlemleri işlemenin bir yoludur. Asynchronous bir eylemin nihai başarı değeri veya başarısızlık nedeni ile işleyicilere izin verir. Bu, asynchronous yöntemlerin synchronous yöntemler gibi değerler döndürmesine olanak tanır: asynchronous yöntem, nihai değeri hemen döndürmek yerine, gelecekte bir noktada değeri sağlama sözü verir.
+
+Bir Promise şu durumlardan birindedir:
+
+pending: başlangıç ​​durumunda, ne tamamlandı ne de reddedildi.
+fulfilled: işlemin başarıyla tamamlandığı anlamına gelir.
+rejected: işlemin başarısız olduğu anlamına gelir.
+Bekleyen bir promise ya bir değerle yerine getirilebilir(fulfilled) ya da bir sebeple (error) rejected olabilir. Bu seçeneklerden herhangi biri gerçekleştiğinde, bir sözün o zaman yöntemiyle sıraya alınan ilişkili işleyiciler çağrılır. (Karşılık gelen bir işleyici(handler) eklendiğinde promise zaten fulfilled veya rejected ise, işleyici(handler) çağrılır, bu nedenle asynchronous bir işlemin tamamlanması ile işleyicilerinin eklenmesi arasında bir yarış koşulu yoktur.)
+
+As the Promise.prototype.then() and Promise.prototype.catch() methods return promises, they can be chained.
+
+
+const doSomething = callback => {
+  setTimeout(() => {
+    const skills = ['HTML', 'CSS', 'JS']
+    callback('It did not go well', skills)
+  }, 2000)
+}
+
+const callback = (err, result) => {
+  if (err) {
+    return console.log(err)
+  }
+  return console.log(result)
+}
+
+doSomething(callback)
+
+
+
+const promise = new Promise((resolve, reject) => {
+  resolve('success')
+  reject('failure')
+})
+
+
+const doPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const skills = ['HTML', 'CSS', 'JS']
+    if (skills.length > 0) {
+      resolve(skills)
+    } else {
+      reject('Something wrong has happened')
+    }
+  }, 2000)
+})
+
+doPromise
+  .then(result => {
+    console.log(result)
+  })
+  .catch(error => console.log(error))
+
+
+
+
+
+
+
+
+const doPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const skills = ['HTML', 'CSS', 'JS']
+    if (skills.includes('Node')) {
+      resolve('fullstack developer')
+    } else {
+      reject('Something wrong has happened')
+    }
+  }, 2000)
+})
+
+doPromise
+  .then(result => {
+    console.log(result)
+  })
+  .catch(error => console.error(error))
+
+
+
+
+
+
+
+
+
+
+
+const url = 'https://restcountries.com/v2/all' // countries api
+fetch(url)
+  .then(response => response.json()) // API verilerine JSON olarak erişme
+  .then(data => {
+    // verileri almak
+    console.log(data)
+  })
+  .catch(error => console.error(error)) // yanlış bir şey olursa işleme hatası
+
+
+
+
+
+
+const square = async function (n) {
+  return n * n
+}
+
+square(2)
+
+
+
+
+
+
+
+const square = async function (n) {
+  return n * n
+}
+const value = await square(2)
+console.log(value)
+
+
+
+
+const url = 'https://restcountries.com/v2/all'
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
+  .catch(error => console.error(error))
+
+
+const fetchData = async () => {
+  try {
+    const response = await fetch(url)
+    const countries = await response.json()
+    console.log(countries)
+  } catch (err) {
+    console.error(err)
+  }
+}
+console.log('===== async and await')
+fetchData()
