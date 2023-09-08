@@ -1,0 +1,80 @@
+var ile tanımlanmış nesneler nerede tanımladığınıza göre scope ölçüsü değişiyor
+function içinde var kullanırsan function dışında kullanamazsın ama diğer bloklar dışında "var" ile tanımlanmış değerleri kullanabilirsin
+
+
+genellikle const ve let kullanılması öneriliyor debug için
+
+
+
+
+her şey bir nesne olabilir
+nesnelerin özellikleri vardır
+özelliklerinde değerleri vardır
+
+
+  
+const users={
+    object:31,
+    url:"NewUrl",
+    list:[1,2,3,"dsa,",321,"4sdfdsaf"]
+}
+console.log(users);
+
+
+nesnenin nesnesi olabilir
+
+const object = 
+{
+	nesne:
+	{
+		test:"string"
+	},
+	object:"string2"
+}
+
+const users={
+    object:31,
+    url:"NewUrl",
+    test:{
+        nesne:31
+    },
+    list:[1,2,3,"dsa,",321,"4sdfdsaf"]
+}
+console.log(Object.entries(users));
+
+entries : hem key hem value getirir
+value : nesnenin value değerlerini getirir
+keys: nesnenin propertylerini getirir
+
+
+//scope.js
+const users={
+    object:31,
+    url:"NewUrl",
+    test:{
+        nesne:31
+    },
+    list:[1,2,3,"dsa,",321,"4sdfdsaf"]
+}
+console.log(users.hasOwnProperty('url'));
+böyle bir property var mı diye true false dönüyor
+
+
+
+const users={
+    object:31,
+    url:"NewUrl",
+    test:{
+        nesne:31
+    },
+    list:[1,2,3,"dsa,",321,"4sdfdsaf"]
+}
+console.log(users);
+
+Object.freeze(users);
+
+users.url="SecondUrl";
+console.log(users.url)
+
+freeze : objeye yeni nesne ya da var olan nesneyi değiştirmeyi engeller
+seal : yeni bir property eklemeyi engeller ama güncelleme işlemleri devam eder

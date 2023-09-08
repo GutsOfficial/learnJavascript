@@ -1,0 +1,55 @@
+const numbers = [1, 2, 3]
+  let [numOne, numTwo, numThree] = numbers
+
+  console.log(numOne, numTwo, numThree)
+
+
+
+
+
+const fullStack = [
+  ['HTML', 'CSS', 'JS', 'React'],
+  ['Node', 'Express', 'MongoDB']
+]
+const [frontEnd, backEnd] = fullStack
+
+console.log(frontEnd)
+console.log(backEnd)
+
+eğer dizideki değerlerin atlanması isteniyorsa virgün (,) işareti kullanmak gerekir
+
+ const numbers = [1, 2, 3]
+  let [numOne, , numThree] = numbers //2 atlandı
+
+  console.log(numOne, numThree)
+
+
+3 ten fazla ise dizi elemanı
+
+const names = ['Asabeneh', 'Brook', 'David', 'John']
+  let [, secondPerson, , fourthPerson] = names // birinci ve üçüncü değer atlandı
+
+  console.log(secondPerson, fourthPerson)// brook ve john yazar
+
+Bu index için dizinin değeri tanımsız olduğunda varsayılan değeri kullanabiliriz.
+
+
+
+const names = [undefined, 'Brook', 'David']
+let [
+  firstPerson = 'Asabeneh',
+  secondPerson,
+  thirdPerson,
+  fourthPerson = 'John'
+] = names
+
+console.log(firstPerson, secondPerson, thirdPerson, fourthPerson)  
+
+
+Dizideki tüm elemanlara değişken atanmayabilir. İlkinin birkaçını yok edip ve kalanını spread operatörünü (...) kullanarak dizi olarak alabiliriz.
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let [num1, num2, num3, ...rest] = nums
+
+console.log(num1, num2, num3)
+console.log(rest)

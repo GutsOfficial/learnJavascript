@@ -1,0 +1,116 @@
+const fonks = number=>number**2
+
+function nofonks(fonks,number){
+    return fonks(number)*number
+}
+console.log(nofonks(fonks,4))
+
+
+const a = s1=>{
+    const b= s2=>{
+        const c=s3=>{
+            return s1+s2+s3;
+        }
+        return c
+    }
+    return b
+}
+console.log(a(31)(32)(1));
+
+
+
+const numbers = [1,2,3,342,53]
+let total = 0;
+numbers.forEach(number=>total+=number);
+console.log(total);
+
+const numbers = [1,2,3,342,53]
+let total = 0;
+numbers.forEach(number=>total+=number);
+
+
+const numbers2= numbers.map(number=>number*2);
+console.log(numbers2)
+forEach ile gezebiliyoruz  objeyi
+map ile modifiye edip gezebiliyoruz
+
+
+let users= [
+    {
+        id:1,
+        name:"burak",
+        age : 26
+
+    },
+    {
+        id:2,
+        name:"ayhan",
+        age : 21
+
+    },
+    {
+        id:3,
+        name:"fatih",
+        age : 13
+
+    },
+]
+users = users.map(user=>{
+    if(user.id==2){
+        user.name="doruk"
+    }
+    return user
+});
+const getById= users.filter(user=>user.id==3)
+console.log(getById);
+console.log(users);
+
+
+
+const numbers = [1,2,3,342,53]
+let total = 0;
+numbers.forEach(number=>total+=number);
+function TotalCal(){
+    console.log(total);
+};
+
+setInterval(TotalCal,1000);
+
+
+const numbers = [1,2,3,342,53]
+let total = 0;
+numbers.forEach(number=>total+=number);
+function TotalCal(){
+    console.log(total);
+};
+
+const interval = setInterval(TotalCal,1000);
+setTimeout(()=>{
+    clearInterval(interval)
+    console.log("iptal başarılı")
+},5000);
+
+
+
+
+const numbers = [1,2,3,342,53]
+let total = 0;
+numbers.forEach(number=>total+=number);
+function TotalCal(){
+    console.log(total);
+};
+
+const interval = setInterval(TotalCal,1000);
+const timeout = setTimeout(()=>{
+    clearInterval(interval)
+    console.log("iptal başarılı")
+},5000);
+
+setTimeout(()=>{
+   clearTimeout(timeout);
+   console.log("time out iptal edildi") 
+},3000);
+
+
+
+

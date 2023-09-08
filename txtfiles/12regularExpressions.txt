@@ -1,0 +1,16 @@
+const str = 'I love JavaScript'
+const pattern = /love/
+const result = pattern.test(str)
+console.log(result)
+
+
+regex cümlede gelen nesnede , kullanıcı adında, yorumda var olan değerleri kontrol etmemizi sağlıyor 
+regex için flaglar ve patternler var
+flag kontrol edilen değerin küçük büyük duyarlılığı gibi özelliklerdir
+pattern ise neyin kontrol edilmesidir
+cümlede love geçiyor mu geçmiyor ona göre true false dönüyor
+
+https://regexlearn.com/tr
+regex için kaynak
+
+yotube kablosuz kedi regex 1.5 saatlik ders
