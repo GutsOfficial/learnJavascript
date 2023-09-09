@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document Object Model:30 Days Of JavaScript</title>
+    </head>
+
+    <body>
+        <h1 title="test" style="background-color: red;">Key events: Press any key</h1>
+        <ul>
+            <li  class="delete-btn">item1 <button>Sil</button></li>
+            <li  class="delete-btn">item2  <button >Sil</button></li>
+            <li  class="delete-btn"><button >  Sil</button></li>
+            <li class="delete-btn">item4  <button >Sil</button></li>
+
+
+        </ul>
+        <p></p>
+        <script>
+            const h1 = document.querySelector('ul')
+            const deletebtn= document.querySelectorAll('.delete-btn')
+            deletebtn.forEach(btn=>{
+                btn.addEventListener('click',e=>{
+                    e.target.remove()
+                    if(h1.childElementCount==0){
+                        h1.innerHTML="gösterilecek veri yok"
+                    }
+                    console.log(h1.childElementCount)
+                })
+            })
+            console.log(h1.childElementCount)
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+children
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document Object Model:30 Days Of JavaScript</title>
+    </head>
+
+    <body>
+        <h1 title="test" style="background-color: red;">Key events: Press any key</h1>
+        <ul>
+            <li  class="delete-btn">item1 <button>Sil</button></li>
+            <li  class="delete-btn">item2  <button >Sil</button></li>
+            <li  class="delete-btn"><button >  Sil</button></li>
+            <li class="delete-btn">item4  <button >Sil</button></li>
+
+
+        </ul>
+        <p></p>
+        <script>
+            const h1 = document.querySelector('ul')
+            const deletebtn= h1.children
+            console.log(deletebtn);
+            [...deletebtn].forEach(btn=>{
+                btn.addEventListener('click',e=>{
+                    e.target.remove()
+                    if(h1.childElementCount==0){
+                        h1.innerHTML="gösterilecek veri yok"
+                    }
+                    console.log(h1.childElementCount)
+                })
+            })
+            console.log(h1.childElementCount)
+        </script>
+    </body>
+</html>
+
+
+
+
+
+clientHeight ve clientWidth
+clientHeight - Elemanın iç yüksekliğini döndürüyor. 
+yükseklik + padding - (varsa) scrollbar yüksekliği değerini döndürüyor. 
+Border ve margin değerlerini hariç tutularak döndürür.
+
+clientWidth - Elemanın iç genişliğini döndürüyor.
+ genişlik + padding - (varsa) scrollbar genişliği değerini döndürüyor. 
+Border ve margin değerlerini hariç tutularak döndürür.
+
+<div class="test" style="padding: 20px; border: 20px solid red">
+  <div>eleman 1</div>
+  <div style="padding: 10px">eleman 2</div>
+  <div>eleman 3</div>
+</div>
+
+<script>
+console.log(
+    document.querySelector('.test').clientHeight
+)
+
+console.log(
+    document.querySelector('.test').clientWidth
+)
+</script>
+
+
+
+
+firstElementChild ve lastElementChild
+Adındanda anlaşılacağı üzere ilk ve son elemanları döndürür.
+
+<ul>
+  <li>eleman 1</li>
+  <li>eleman 2</li>
+  <li>eleman 3</li>
+  <li>eleman 4</li>
+</ul>
+
+<script>
+const ul = document.querySelector('ul')
+
+console.log(
+    ul.firstElementChild
+)
+
+console.log(
+    ul.lastElementChild
+)
+</script>
+
+
+
+
+
+
+
+
+
+
+nextElementSibling ve previousElementSibling
+nextElementSibling - Seçilen elemanın hemen sonrasında gelen elemanı döndürür.
+previousElementSibling - Seçilen elemanın hemen öncesinde gelen elemanı döndürür.
+<div>div etiketi</div>
+<h1 class="title">Başlık</h1>
+<p>paragraf</p>
+
+<script>
+console.log(
+    document.querySelector('.title').nextElementSibling
+)
+  
+console.log(
+    document.querySelector('.title').previousElementSibling
+)
+</script>
+
+
+scrollHeight ve scrollWidth
+scrollHeight - Elemanın taşan alanlarıda dahil olmak üzere yüksekliğini döndürür.
+scrollWidth - Elemanın taşan alanlarıda dahil olmak üzere genişliğini döndürür.
+<div class="scroll-content" style="height: 70px; overflow: auto">
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+</div>
+
+<script>
+console.log(
+    document.querySelector('.scroll-content').scrollHeight
+)
+</script>
+
+
+
+
+scrollLeft ve scrollTop
+scrollLeft - Scroll olan elemanın soldan mesafesini döndürür. Ayrıca soldan mesafesini ayarlamak içinde aynı özellik kullanılır.
+scrollWidth - Scroll olan elemanın yukarıdan mesafesini döndürür. Ayrıca yukarıdan mesafesini ayarlamak içinde aynı özellik kullanılır.
+<div class="scroll-content" style="height: 70px; overflow: auto">
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+  test <br>
+</div>
+
+<script>
+document.querySelector('.scroll-content').scrollTop += 100
+
+console.log(
+    document.querySelector('.scroll-content').scrollTop
+)
+</script>
+
+
+
+
+tagName
+Seçilen öğenin etiket ismini döndürür.
+
+<h1 class="test">Başlık</h1>
+<p class="test">paragraf</p>
+<div class="test">div</div>
+
+<script>
+const elements = document.querySelectorAll('.test')
+for (const element of elements) {
+    console.log(element.tagName)
+}
+</script>
+
+
+
+
+
+Metodlar
+after() ve before()
+Seçilen elemanın öncesine ve sonrasına öğe eklemek için kullanılır.
+
+<div id="test">test div</div>
+
+<script>
+let div = document.getElementById('test')
+
+let h1 = document.createElement('h1')
+h1.textContent = 'baslik'
+
+let p = document.createElement('p')
+p.textContent = 'paragraf'
+
+div.before(h1)
+div.after(p)
+</script>
+
+
+append() ve prepend()
+Seçilen elemanın başına ve sonuna öğe eklemek için kullanılır. after() ve before() metodlarından farklı olarak bu iki metod ile seçilen öğenin içinde öncesine ve sonrasına öğeler eklenir.
+
+<div id="test" style="border: 10x solid red">test div</div>
+
+<script>
+let div = document.getElementById('test')
+
+let h1 = document.createElement('h1')
+h1.textContent = 'baslik'
+
+let p = document.createElement('p')
+p.textContent = 'paragraf'
+
+div.prepend(h1)
+div.append(p)
+</script>
+
+
+
+
+closest()
+Seçilen elemana en yakın belirtilen öğeyi döndürür.
+
+<ul>
+  <li>liste</li>
+  <li>liste</li>
+  <li>
+    liste
+    <ul>
+      <li>liste</li>
+      <li>liste</li>
+      <li>liste</li>
+      <li>
+        liste
+        <ul>
+          <li>liste</li>
+          <li>liste</li>
+          <li>liste</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>liste</li>
+  <li>liste</li>
+</ul>
+
+<script>
+const liElements = document.querySelectorAll('li')
+
+for (const li of liElements) {
+    li.addEventListener('click', e => {
+        //e.stopPropagation()
+        console.log(
+            li.closest('ul')
+        )
+    })
+}
+</script>
+
+
+
+
+
+getBoundingClientRect()
+Seçilen öğenin boyutlarını ve pozisyon bilgilerini DOMRect objesi olarak döndürür.
+
+<div id="test">
+  test div
+</div>
+
+<script>
+console.log(
+    document.getElementById('test').getBoundingClientRect()
+)
+</script>
+matched()
+Seçilen elemanın belirtilen css seçicisiyle eşleşip eşleşmediğini kontrol eder.
+
+<button type="button">buton</button>
+<button type="submit">submit button</button>
+<button type="reset">reset button</button>
+<button disabled type="submit">disabled submit button</button>
+
+<script>
+const buttons = document.querySelectorAll('button')
+
+for (const button of buttons) {
+    // tipi submit olan ve disabled olan oge olup olmadini kontrol et
+    console.log(
+        button.matches('[type=submit][disabled]'),
+        button
+    )
+}
+</script>
+
+
+
+
+
+setAttribute()
+Seçilen elemana belirtilen niteligi ekler.
+
+<a href="https://prototurk.com">prototurk</a>
+
+<script>
+const a = document.querySelector('a')
+a.setAttibute('target', '_blank')
+</script>
+getAttribute()
+Seçilen elemana ait belirtilen niteligi dondurur.
+
+<a href="https://prototurk.com">prototurk</a>
+
+<script>
+const a = document.querySelector('a')
+console.log(
+    a.getAttribute('href')
+)
+</script>
+
+
+
+
+
+hasAttribute()
+Seçilen elemana ait belirlenen niteliğin olup olmadığını kontrol eder.
+
+<a href="https://prototurk.com">prototurk</a>
+<a href="https://youtube.com/prototurkcom" title="Prototurk youtube kanalı">prototurk youtube</a>
+
+<script>
+const aElements = document.querySelectorAll('a')
+
+for (const a of aElements) {
+    if (a.hasAttribute('title')) {
+        a.style.backgroundColor = 'yellow'
+    }
+}
+</script>
+
+
+
+
+
+
+hasAttributes()
+Seçilen elemana ait herhangi bir nitelik olup olmadığını kontrol eder.
+
+<h1>başlık</h1>
+<h1 title="örnek başlık">başlık 2</h1>
+
+<script>
+const h1Elements = document.querySelectorAll('h1')
+
+for (const h1 of h1Elements) {
+    if (!h1.hasAttributes()) {
+        h1.style.backgroundColor = 'yellow'
+    }
+}
+</script>
+
+
+
+
+toggleAttribute()
+Seçilen elemana belirtilen nitelik varsa kaldırılmasını yoksa eklenmesini sağlar.
+
+<input type="text" />
+<button>toggle</button>
+
+<script>
+const button = document.querySelector('button')
+const input = document.querySelector('input')
+  
+button.addEventListener('click', () => {
+  input.toggleAttribute('disabled')
+})
+</script>
