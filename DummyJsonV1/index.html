@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Ürün Listesi</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+    
+    <script>
+        // API'den veriyi çekme
+        fetch('https://dummyjson.com/products')
+        .then(response => response.json())
+        .then(data => {
+            const dataArray = Object.values(data)
+            const products = Array.isArray(dataArray) ? dataArray : [];
+            console.log(products)
+            const tableBody = document.getElementById('table-body');
+            
+            // Her ürün için bir satır oluşturma
+            products[0].forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.title}</td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('API isteği başarısız:', error);
+        });
+    </script>
+</body>
+</html>
