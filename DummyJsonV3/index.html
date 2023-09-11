@@ -14,20 +14,24 @@
     
     <script>
         // API'den veriyi çekme
-        let query= "John"
-        fetch(`https://dummyjson.com/users/search?q=${query}`)
+       
+        fetch(`https://dummyjson.com/users/5/carts`)
         .then(response => response.json())
         .then(data => {
             const dataArray = Object.values(data)
            
             const tableBody = document.getElementById('test');
-            console.log(dataArray[0].firstName)
+           
             // Her ürün için bir satır oluşturma
-            data[0].forEach(product => {
-                const row = document.createElement('li');
-                row.innerHTML = ` ${product.firstName}
+            dataArray[0].forEach(product => {
+                
+                let uzunluk = dataArray.length;
+                console.log(uzunluk)
+                for(let i =0 ;i<uzunluk;i++){
+                    const row = document.createElement('li');
+                row.innerHTML = ` ${product.products[i].title}
                 `;
-                tableBody.appendChild(row);
+                tableBody.appendChild(row);}
             });
         })
         .catch(error => {
