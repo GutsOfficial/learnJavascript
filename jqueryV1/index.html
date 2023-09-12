@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+ 
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+</head>
+<body>
+    <button id="butondur">Selammm</button>
+ <div id="result">
+
+ </div>
+ <script>
+   function testttt(){
+    $.ajax({
+    type:"POST",
+    dataType:"json",
+    data:{
+      title:"BmwPencil"  
+    },
+    url:" https://dummyjson.com/products/add",
+    success:function(data){
+        console.log(data,5432423432)
+        
+        const product = document.createElement('li');
+        product.innerHTML=`${data.id}`;
+        var result = document.getElementById('result');
+        result.appendChild(product);
+    }
+   })
+   }
+  const btn = document.getElementById('butondur');
+  btn.addEventListener('click',testttt)
+ </script>
+ 
+</body>
+</html>
