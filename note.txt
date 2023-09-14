@@ -1,0 +1,5 @@
+bugün react native de hazır componentleri gördük
+
+android dosyalama tarzını gördük
+platformları gördük
+button view safeview text alert gibi hazır componentler var
