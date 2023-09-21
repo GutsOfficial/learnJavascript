@@ -1,0 +1,2 @@
+test apiden veri çekip verileri listeledik 
+bir e ticaret sitesi görünümü yarattık ama çok basic
